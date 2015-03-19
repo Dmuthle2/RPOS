@@ -25,17 +25,15 @@ public class PiOS {
 		}
 	}
 
-	private void DBConnect() {
-		String host = "jdbc:derby://eaglenet.lhup.edu:1527/raspberrypos";
+	private void dbConnect() {
+		String host = "jdbc:mysql://eaglenet.lhup.edu:1527/raspberrypos";
 		String username = "piconnect";
 		String password = "26X7DuxjbJeu2JBf";
 
 		try {
 			Connection con = DriverManager.getConnection(host, username,
 					password);
-			Statement stmt = con.createStatement();
-			String test = "SELECT * FROM EMPLOYEES";
-			ResultSet rs = stmt.executeQuery(test);
+			login();
 		} catch (SQLException err) {
 			System.out.println(err.getMessage());
 		}
@@ -43,7 +41,9 @@ public class PiOS {
 
 	public void login() {
 		// Method utilized to log in a user
-
+		
+		//connect to DB
+		dbConnect();
 		// request username
 		System.out.print("Username: ");
 		String username = in.next();

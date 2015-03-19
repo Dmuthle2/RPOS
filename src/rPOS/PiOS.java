@@ -41,7 +41,7 @@ public class PiOS {
 		}
 	}
 
-	private void login() {
+	public void login() {
 		// Method utilized to log in a user
 
 		// request username

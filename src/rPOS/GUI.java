@@ -6,11 +6,13 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
+import rPOS.PiOS;
 
 public class GUI {
 
 	private Shell shell;
 	String title = "Raspberry Point of Sale";
+	PiOS pi = new PiOS();
 	
 	
 	public GUI(Display display){
@@ -39,6 +41,7 @@ public class GUI {
 				switch(e.type){
 				case SWT.Selection:
 					System.out.println("Button Pressed");
+					pi.login();
 					break;
 				}
 			}
@@ -49,6 +52,7 @@ public class GUI {
 		Display display = new Display();
 		new GUI(display);
 		display.dispose();
+		
 		
 	}
 

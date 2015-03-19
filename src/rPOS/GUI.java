@@ -17,7 +17,7 @@ public class GUI {
 		shell = new Shell(display);
 		shell.setText(title);
 		
-		initUI();
+		testButton();
 		
 		shell.setSize(1024, 768);
 		shell.setLocation(300,300);
@@ -25,12 +25,12 @@ public class GUI {
 		
 		while(!shell.isDisposed()){
 			if(!display.readAndDispatch()){
-				display.sleep();
+				display.sleep(); 
 			}
 		}
 	}
 	
-	private void initUI() {
+	private void testButton() {
 		Button button1 = new Button(shell, SWT.PUSH);
 		button1.setText("Login");
 		button1.setBounds(20,20,80,30);

@@ -1,0 +1,88 @@
+package raspberryPi_GUI;
+
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Button;
+
+public class confirmCashOut {
+
+	protected Shell shell;
+	private Text txtTotalamounttext;
+	private Text text;
+	private Text text_1;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			confirmCashOut window = new confirmCashOut();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(535, 370);
+		shell.setText("SWT Application");
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setBounds(51, 49, 132, 21);
+		lblNewLabel.setText("Total Amount:");
+		
+		Label lblAmountPaid = new Label(shell, SWT.NONE);
+		lblAmountPaid.setBounds(51, 105, 138, 21);
+		lblAmountPaid.setText("Amount Paid:");
+		
+		Label lblTip = new Label(shell, SWT.NONE);
+		lblTip.setBounds(51, 179, 69, 21);
+		lblTip.setText("Tip:");
+		
+		txtTotalamounttext = new Text(shell, SWT.BORDER);
+		txtTotalamounttext.setText("##.##");
+		txtTotalamounttext.setBounds(189, 49, 132, 33);
+		
+		text = new Text(shell, SWT.BORDER);
+		text.setText("##.##");
+		text.setBounds(189, 105, 132, 33);
+		
+		text_1 = new Text(shell, SWT.BORDER);
+		text_1.setText("##.##");
+		text_1.setBounds(189, 177, 132, 33);
+		
+		Button btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.setBounds(319, 229, 176, 80);
+		btnNewButton.setText("Cash Out");
+		
+		Button btnGoBack = new Button(shell, SWT.NONE);
+		btnGoBack.setText("Go Back");
+		btnGoBack.setBounds(28, 229, 176, 80);
+
+	}
+
+}
+

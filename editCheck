@@ -1,0 +1,112 @@
+package raspberryPi_GUI;
+
+import org.eclipse.swt.widgets.Display;
+
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+
+public class editCheck {
+
+	protected Shell shell;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			editCheck window = new editCheck();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(1024, 768);
+		shell.setText("SWT Application");
+		
+		Button btnAddFood = new Button(shell, SWT.NONE);
+		btnAddFood.setText("Add Food");
+		btnAddFood.setBounds(94, 0, 227, 128);
+		
+		Button btnAddBeverage = new Button(shell, SWT.NONE);
+		btnAddBeverage.setText("Add Beverage");
+		btnAddBeverage.setBounds(402, 0, 227, 128);
+		
+		Button btnAddAlcohol = new Button(shell, SWT.NONE);
+		btnAddAlcohol.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+			}
+		});
+		btnAddAlcohol.setText("Add Alcohol");
+		btnAddAlcohol.setBounds(746, 0, 227, 128);
+		
+		Button btnRemoveItem = new Button(shell, SWT.NONE);
+		btnRemoveItem.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+			}
+		});
+		btnRemoveItem.setText("Remove Item");
+		btnRemoveItem.setBounds(746, 182, 227, 128);
+		
+		Button btnCashOut = new Button(shell, SWT.NONE);
+		btnCashOut.setText("Cash Out");
+		btnCashOut.setBounds(746, 599, 227, 128);
+		
+		Button btnPrintReceipt = new Button(shell, SWT.NONE);
+		btnPrintReceipt.setText("Print Receipt");
+		btnPrintReceipt.setBounds(746, 392, 227, 128);
+		
+		Button btnLockScreen = new Button(shell, SWT.PUSH);
+		btnLockScreen.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDoubleClick(MouseEvent arg0) {
+				
+			}
+		});
+		btnLockScreen.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+			}
+		});
+		btnLockScreen.setText("Lock Screen");
+		btnLockScreen.setBounds(402, 599, 227, 128);
+		
+		Button btnGoBack = new Button(shell, SWT.NONE);
+		btnGoBack.setText("Go Back");
+		btnGoBack.setBounds(94, 599, 227, 128);
+		
+		List list = new List(shell, SWT.BORDER);
+		list.setBounds(47, 147, 581, 373);
+
+	}
+}
+

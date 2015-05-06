@@ -1,0 +1,64 @@
+package raspberryPi_GUI;
+
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Button;
+
+public class confirmPrintReceipt {
+
+	protected Shell shell;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			confirmPrintReceipt window = new confirmPrintReceipt();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(535, 370);
+		shell.setText("SWT Application");
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setBounds(114, 58, 296, 21);
+		lblNewLabel.setText("Are you sure you want to Print Receipt?");
+		
+		Button btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.setBounds(53, 144, 117, 65);
+		btnNewButton.setText("Yes");
+		
+		Button btnNo = new Button(shell, SWT.NONE);
+		btnNo.setText("No");
+		btnNo.setBounds(249, 144, 117, 65);
+
+	}
+
+}
+

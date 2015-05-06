@@ -1,0 +1,64 @@
+package raspberryPi_GUI;
+
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Button;
+
+public class confirmLogout {
+
+	protected Shell shell;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			confirmLogout window = new confirmLogout();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(535, 370);
+		shell.setText("SWT Application");
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setBounds(141, 86, 282, 21);
+		lblNewLabel.setText("Are you sure you want to logout?");
+		
+		Button btnYes = new Button(shell, SWT.NONE);
+		btnYes.setBounds(58, 188, 128, 65);
+		btnYes.setText("Yes");
+		
+		Button btnNo = new Button(shell, SWT.NONE);
+		btnNo.setText("No");
+		btnNo.setBounds(260, 188, 128, 65);
+
+	}
+
+}
+

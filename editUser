@@ -1,0 +1,64 @@
+package raspberryPi_GUI;
+
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Button;
+
+public class editUser {
+
+	protected Shell shell;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			editUser window = new editUser();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		
+		Button btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.setBounds(20, 136, 139, 105);
+		btnNewButton.setText("Change Password");
+		
+		Button btnDeleteUser = new Button(shell, SWT.NONE);
+		btnDeleteUser.setText("Delete user");
+		btnDeleteUser.setBounds(213, 136, 139, 105);
+		
+		Button btnLogout = new Button(shell, SWT.NONE);
+		btnLogout.setText("Logout");
+		btnLogout.setBounds(398, 136, 139, 105);
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setBounds(261, 46, 69, 21);
+		lblNewLabel.setText("Edit User");
+
+	}
+
+}
+

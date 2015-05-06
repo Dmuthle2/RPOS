@@ -1,0 +1,65 @@
+package raspberryPi_GUI;
+
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Button;
+
+public class changeScreen {
+
+	protected Shell shell;
+	private Text text;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			changeScreen window = new changeScreen();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(535, 370);
+		shell.setText("SWT Application");
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setBounds(47, 146, 117, 21);
+		lblNewLabel.setText("Change:");
+		
+		text = new Text(shell, SWT.BORDER);
+		text.setBounds(170, 144, 127, 33);
+		
+		Button btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.setBounds(328, 240, 150, 94);
+		btnNewButton.setText("Close Check");
+
+	}
+
+}
+

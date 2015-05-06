@@ -1,0 +1,83 @@
+package raspberryPi_GUI;
+
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.SWT;
+
+public class managerLogin {
+
+	protected Shell shell;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			managerLogin window = new managerLogin();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(1024, 768);
+		shell.setText("SWT Application");
+		
+		Button btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.setBounds(24, 0, 227, 128);
+		btnNewButton.setText("New Check");
+		
+		Button btnNewButton_1 = new Button(shell, SWT.NONE);
+		btnNewButton_1.setBounds(390, 0, 227, 128);
+		btnNewButton_1.setText("Add User");
+		
+		Button btnEditUser = new Button(shell, SWT.NONE);
+		btnEditUser.setText("Edit User");
+		btnEditUser.setBounds(711, 0, 227, 128);
+		
+		Button btnShutdown = new Button(shell, SWT.NONE);
+		btnShutdown.setText("Shutdown");
+		btnShutdown.setBounds(24, 594, 227, 128);
+		
+		Button btnPrintSales = new Button(shell, SWT.NONE);
+		btnPrintSales.setText("Print Sales");
+		btnPrintSales.setBounds(390, 260, 227, 128);
+		
+		Button btnOpenChecks = new Button(shell, SWT.NONE);
+		btnOpenChecks.setText("Open Check(s)");
+		btnOpenChecks.setBounds(24, 260, 227, 128);
+		
+		Button btnReboot = new Button(shell, SWT.NONE);
+		btnReboot.setText("Reboot");
+		btnReboot.setBounds(390, 594, 227, 128);
+		
+		Button btnLogout = new Button(shell, SWT.NONE);
+		btnLogout.setText("Logout");
+		btnLogout.setBounds(711, 594, 227, 128);
+
+	}
+
+}
+
